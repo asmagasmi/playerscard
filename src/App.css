@@ -1,38 +1,95 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #000000;
   min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark mode */
+.App.dark {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* Header styling */
+.header {
   display: flex;
-  flex-direction: column;
+  justify-content: center; /* Center title */
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 15px 30px;
+  background-color: #f5f5f5;
+  border-bottom: 2px solid #ddd;
+  position: relative; /* Allows absolute positioning of button */
+}
+
+
+.App.dark .header {
+  background-color: #1a1a1a;
+  border-color: #444;
+}
+.toggle-btn {
+  position: absolute;
+  right: 30px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #007bff;
   color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
+.toggle-btn:hover {
+  background-color: #0056b3;
+}
+/* Players grid */
+.players-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-content: center;
+  margin: 20px auto;
+  max-width: 600px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Player card */
+.player-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 0 10px #ccc;
+  background-color: #fff;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.App.dark .player-card {
+  background-color: #1a1a1a;
+  border-color: #444;
+}
+
+/* Player image */
+.player-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+
+.player-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 0 10px #ccc;
+  background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s, color 0.3s;
+  cursor: pointer;
+}
+
+.player-card:hover {
+  transform: scale(1.05);       /* Zoom in slightly */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow */
 }
